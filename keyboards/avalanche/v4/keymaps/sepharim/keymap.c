@@ -1,5 +1,6 @@
 #include QMK_KEYBOARD_H
 
+#include "keymap_german_mac_iso.h"
 
 /* THIS FILE WAS GENERATED!
  *
@@ -23,28 +24,32 @@ enum layer {
 #define SGN_SPC LT(_SGN, KC_SPC)
 #define SGN_ENT LT(_SGN, KC_ENT)
 
+#define xxxxxxx KC_NO
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_BASE] = LAYOUT(KC_ESC  , KC_1    , KC_2    , KC_3    , KC_4    , KC_5    ,                                                  KC_6    , KC_7    , KC_8    , KC_9    , KC_0    , RALT(KC_E),
-                     KC_TAB  , KC_X    , KC_V    , KC_L    , KC_C    , KC_W    ,                                                  KC_K    , KC_H    , KC_G    , KC_F    , KC_Q    , KC_MINS ,
-            RGB_VAI, EE_CLR  , KC_U    , KC_I    , KC_A    , KC_E    , KC_O    ,                                                  KC_S    , KC_N    , KC_R    , KC_T    , KC_D    , KC_Z    , RGB_TOG, 
-                     KC_LSFT , KC_LBRC , KC_SCLN , KC_QUOT , KC_P    , KC_Y    ,    KC_LGUI , FN      ,    KC_APP  , KC_RGUI ,    KC_B    , KC_M    , KC_COMM , KC_DOT  , KC_J    , KC_RSFT , 
-                                                   KC_NO   , KC_LCTL , KC_LALT ,    SGN_SPC , NAV_ENT ,    NUM_SPC , SGN_ENT ,    KC_RALT , KC_RCTL , KC_NO),
-    [_NUM]  = LAYOUT(KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,                                                  KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,
-                     KC_NO   , KC_PGUP , KC_BSPC , KC_UP   , KC_DEL  , KC_PGDN ,                                                  KC_NO   , KC_7    , KC_8    , KC_9    , KC_NO   , KC_NO   ,
-            KC_NO  , KC_NO   , KC_HOME , KC_LEFT , KC_DOWN , KC_RGHT , KC_END  ,                                                  KC_NO   , KC_4    , KC_5    , KC_6    , KC_NO   , KC_NO   , KC_NO  , 
-                     KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,    KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS ,    KC_0    , KC_1    , KC_2    , KC_3    , KC_NO   , KC_NO   ,
-                                                   KC_TRNS , KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS , KC_TRNS),
-    [_FN]   = LAYOUT(KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,                                                  KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,
-                     KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,                                                  KC_NO   , KC_F7   , KC_F8   , KC_F9   , KC_F10  , KC_NO   ,
-            KC_NO  , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,                                                  KC_NO   , KC_F4   , KC_F5   , KC_F6   , KC_F11  , KC_NO   , KC_NO  ,
-                     KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS ,    KC_NO   , KC_F1   , KC_F2   , KC_F3   , KC_F12  , KC_NO   ,
-                                                   KC_TRNS , KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS , KC_TRNS),
-    [_SGN]  = LAYOUT(KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,                                                  KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,
-                     KC_NO   ,RALT(KC_Q),LSFT(KC_SLSH),RALT(KC_8),RALT(KC_9),KC_GRV,                                              LSFT(KC_1), KC_NUBS, LSFT(KC_NUBS), LSFT(KC_0), LSFT(KC_6), KC_NO,
-            RGB_MOD, KC_NO  ,RALT(KC_MINS), LSFT(KC_7), RALT(KC_7), RALT(KC_0), LSFT(KC_RBRC),                                    LSFT(KC_MINS), LSFT(KC_8), LSFT(KC_9), KC_SLSH, LSFT(KC_DOT), RALT(KC_Q), KC_NO,
-                     KC_NO   , KC_NUHS,LSFT(KC_4), RALT(KC_NUBS), RALT(KC_RBRC), LSFT(KC_EQL),    KC_TRNS, KC_TRNS,   KC_TRNS, KC_TRNS,   KC_RBRC, LSFT(KC_5), LSFT(KC_2), LSFT(KC_NUHS), LSFT(KC_COMM), KC_NO, 
-                                                   KC_TRNS , KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS , KC_TRNS)
+    [_BASE] = LAYOUT(KC_ESC  , KC_1    , KC_2    , KC_3    , KC_4    , KC_5    ,                                                  KC_6    , KC_7    , KC_8    , KC_9    , KC_0    , DE_EURO ,
+                     KC_TAB  , KC_X    , KC_V    , KC_L    , KC_C    , KC_W    ,                                                  KC_K    , KC_H    , KC_G    , KC_F    , KC_Q    , DE_SS   ,
+            RGB_VAI, EE_CLR  , KC_U    , KC_I    , KC_A    , KC_E    , KC_O    ,                                                  KC_S    , KC_N    , KC_R    , KC_T    , KC_D    , DE_Y    , RGB_TOG, 
+                     KC_LSFT , KC_LBRC , KC_SCLN , KC_QUOT , KC_P    , DE_Z    ,    KC_LGUI , FN      ,    KC_APP  , KC_RGUI ,    KC_B    , KC_M    , KC_COMM , KC_DOT  , KC_J    , KC_RSFT , 
+                                                   xxxxxxx , KC_LCTL , KC_LALT ,    SGN_SPC , NAV_ENT ,    SGN_SPC , NAV_ENT ,    KC_RALT , KC_RCTL , KC_NO),
+    [_NUM]  = LAYOUT(xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx ,                                                  xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx ,
+                     xxxxxxx , KC_PGUP , KC_BSPC , KC_UP   , KC_DEL  , KC_PGDN ,                                                  xxxxxxx , KC_7    , KC_8    , KC_9    , xxxxxxx , xxxxxxx ,
+            xxxxxxx, xxxxxxx , KC_HOME , KC_LEFT , KC_DOWN , KC_RGHT , KC_END  ,                                                  xxxxxxx , KC_4    , KC_5    , KC_6    , xxxxxxx , xxxxxxx , xxxxxxx, 
+                     xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx ,    _______ , _______ ,    _______ , _______ ,    KC_0    , KC_1    , KC_2    , KC_3    , xxxxxxx , xxxxxxx ,
+                                                   _______ , _______ , _______ ,    _______ , _______ ,    _______ , _______ ,    _______ , _______ , _______),
+    [_FN]   = LAYOUT(_______ , _______ , _______ , _______ , _______ , _______ ,                                                  xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx ,
+                     _______ , _______ , _______ , _______ , _______ , _______ ,                                                  xxxxxxx , KC_F7   , KC_F8   , KC_F9   , KC_F10  , xxxxxxx ,
+            xxxxxxx, _______ , _______ , _______ , _______ , _______ , _______ ,                                                  xxxxxxx , KC_F4   , KC_F5   , KC_F6   , KC_F11  , xxxxxxx , xxxxxxx,
+                     _______ , _______ , _______ , _______ , _______ , _______ ,    _______ , _______ ,    _______ , _______ ,    xxxxxxx , KC_F1   , KC_F2   , KC_F3   , KC_F12  , xxxxxxx ,
+                                                   _______ , _______ , _______ ,    _______ , _______ ,    _______ , _______ ,    _______ , _______ , _______),
+    [_SGN]  = LAYOUT(xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx ,                                                  xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx ,
+                     xxxxxxx , DE_AT   , DE_UNDS , DE_LBRC , DE_RBRC , DE_CIRC ,                                                  DE_EXLM , DE_LABK , DE_RABK , DE_EQL  , DE_AMPR , xxxxxxx ,
+            RGB_MOD, xxxxxxx , DE_BSLS , DE_SLSH , DE_LCBR , DE_RCBR , DE_ASTR ,                                                  DE_QUES , DE_LBRC , DE_RBRC , DE_MINS , DE_COLN , DE_AT   , xxxxxxx,
+                     xxxxxxx , DE_HASH , DE_DLR  , DE_PIPE , DE_TILD , DE_GRV  ,    _______ , _______ ,    _______ , _______ ,    DE_PLUS , DE_PERC , DE_DQUO , DE_QUOT , DE_SCLN , xxxxxxx , 
+                                                   _______ , _______ , _______ ,    _______ , _______ ,    _______ , _______ ,    _______ , _______ , _______)
 };
+
+bool should_process_keypress(void) { return true; }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
     if (get_autoshift_state() && (state & (1<<_NUM) || state & (1<<_FN) || state & (1<<_SGN))) {
@@ -53,6 +58,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         autoshift_enable();
     }
 
+#ifdef RGBLIGHT_ENABLE
     switch (get_highest_layer(state)) {
     case _NUM:
         rgblight_sethsv_noeeprom (0xFF,  0xFF, 0x77);
@@ -67,5 +73,23 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         rgblight_sethsv_noeeprom (0x50,  0xFF, 0xFF);
         break;
     }
+#endif
+  
+#ifdef OLED_ENABLE
+  switch (get_highest_layer(state)) {
+    case _NUM:
+      oled_write_P(PSTR("Num & Nav"), false);
+      break;
+    default:
+      //                 
+      oled_write_P(PSTR("123456789012345678901\n1\n2\n3\n4\n5"), false);
+      break;
+  }
+#endif
   return state;
 };
+
+bool oled_task_user(void) {
+    oled_write_P(PSTR("Avalanche - sepharim\n"), false);
+    return false;
+}
