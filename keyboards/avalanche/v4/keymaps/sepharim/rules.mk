@@ -1,7 +1,7 @@
 RGBLIGHT_ENABLE = yes
 AUTO_SHIFT_ENABLE = yes
 OLED_ENABLE = yes
-
+CAPS_WORD_ENABLE = yes
 
 
 LTO_ENABLE = yes # link time optimisation
