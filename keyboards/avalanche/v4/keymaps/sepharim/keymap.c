@@ -9,17 +9,17 @@
 
 enum layer {
     _BASE,
-    _EMPT,
     _NUM,
-    _NAV,
     _FN,
     _SGN,
 };
 
+#define _NAV _NUM
+
 #define NUM_SPC LT(_NUM, KC_SPC)
-#define NAV     MO(_NAV)
+#define NAV     TT(_NAV)
 #define NAV_ENT LT(_NAV, KC_ENT)
-#define FN      MO(_FN)
+#define FN      TT(_FN)
 #define SGN_SPC LT(_SGN, KC_SPC)
 #define SGN_ENT LT(_SGN, KC_ENT)
 
@@ -27,17 +27,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(KC_ESC  , KC_1    , KC_2    , KC_3    , KC_4    , KC_5    ,                                                  KC_6    , KC_7    , KC_8    , KC_9    , KC_0    , RALT(KC_E),
                      KC_TAB  , KC_X    , KC_V    , KC_L    , KC_C    , KC_W    ,                                                  KC_K    , KC_H    , KC_G    , KC_F    , KC_Q    , KC_MINS ,
             RGB_VAI, EE_CLR  , KC_U    , KC_I    , KC_A    , KC_E    , KC_O    ,                                                  KC_S    , KC_N    , KC_R    , KC_T    , KC_D    , KC_Z    , RGB_TOG, 
-                     KC_LSFT , KC_LBRC , KC_SCLN , KC_QUOT , KC_P    , KC_Y    ,    KC_LGUI , _______ ,    KC_APP  , KC_RGUI ,    KC_B    , KC_M    , KC_COMM , KC_DOT  , KC_J    , KC_RSFT , 
+                     KC_LSFT , KC_LBRC , KC_SCLN , KC_QUOT , KC_P    , KC_Y    ,    KC_LGUI , FN      ,    KC_APP  , KC_RGUI ,    KC_B    , KC_M    , KC_COMM , KC_DOT  , KC_J    , KC_RSFT , 
                                                    KC_NO   , KC_LCTL , KC_LALT ,    SGN_SPC , NAV_ENT ,    NUM_SPC , SGN_ENT ,    KC_RALT , KC_RCTL , KC_NO),
-    [_NUM]  = LAYOUT(KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,                                                  KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,
-                     KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,                                                  KC_NO   , KC_7    , KC_8    , KC_9    , KC_NO   , KC_NO   ,
-            KC_NO  , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,                                                  KC_NO   , KC_4    , KC_5    , KC_6    , KC_NO   , KC_NO   , KC_NO  , 
-                     KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS ,    KC_0    , KC_1    , KC_2    , KC_3    , KC_NO   , KC_NO   ,
-                                                   KC_TRNS , KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS , KC_TRNS),
-    [_NAV]  = LAYOUT(KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,                                                  KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,
-                     KC_NO   , KC_PGUP , KC_BSPC , KC_UP   , KC_DEL  , KC_PGDN ,                                                  KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,
-            KC_NO  , KC_NO   , KC_HOME , KC_LEFT , KC_DOWN , KC_RGHT , KC_END  ,                                                  KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS,
-                     KC_TRNS , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,    KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,
+    [_NUM]  = LAYOUT(KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,                                                  KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,
+                     KC_NO   , KC_PGUP , KC_BSPC , KC_UP   , KC_DEL  , KC_PGDN ,                                                  KC_NO   , KC_7    , KC_8    , KC_9    , KC_NO   , KC_NO   ,
+            KC_NO  , KC_NO   , KC_HOME , KC_LEFT , KC_DOWN , KC_RGHT , KC_END  ,                                                  KC_NO   , KC_4    , KC_5    , KC_6    , KC_NO   , KC_NO   , KC_NO  , 
+                     KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,    KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS ,    KC_0    , KC_1    , KC_2    , KC_3    , KC_NO   , KC_NO   ,
                                                    KC_TRNS , KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS , KC_TRNS),
     [_FN]   = LAYOUT(KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,                                                  KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,
                      KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,                                                  KC_NO   , KC_F7   , KC_F8   , KC_F9   , KC_F10  , KC_NO   ,
@@ -46,9 +41,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                    KC_TRNS , KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS , KC_TRNS),
     [_SGN]  = LAYOUT(KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,                                                  KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,
                      KC_NO   ,RALT(KC_Q),LSFT(KC_SLSH),RALT(KC_8),RALT(KC_9),KC_GRV,                                              LSFT(KC_1), KC_NUBS, LSFT(KC_NUBS), LSFT(KC_0), LSFT(KC_6), KC_NO,
-            KC_NO  , KC_NO  ,RALT(KC_MINS), LSFT(KC_7), RALT(KC_7), RALT(KC_0), LSFT(KC_RBRC),                                    LSFT(KC_MINS), LSFT(KC_8), LSFT(KC_9), KC_SLSH, LSFT(KC_DOT), RALT(KC_Q), KC_NO,
+            RGB_MOD, KC_NO  ,RALT(KC_MINS), LSFT(KC_7), RALT(KC_7), RALT(KC_0), LSFT(KC_RBRC),                                    LSFT(KC_MINS), LSFT(KC_8), LSFT(KC_9), KC_SLSH, LSFT(KC_DOT), RALT(KC_Q), KC_NO,
                      KC_NO   , KC_NUHS,LSFT(KC_4), RALT(KC_NUBS), RALT(KC_RBRC), LSFT(KC_EQL),    KC_TRNS, KC_TRNS,   KC_TRNS, KC_TRNS,   KC_RBRC, LSFT(KC_5), LSFT(KC_2), LSFT(KC_NUHS), LSFT(KC_COMM), KC_NO, 
                                                    KC_TRNS , KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS ,    KC_TRNS , KC_TRNS , KC_TRNS)
 };
 
+layer_state_t layer_state_set_user(layer_state_t state) {
+    if (get_autoshift_state() && (state & (1<<_NUM) || state & (1<<_FN) || state & (1<<_SGN))) {
+        autoshift_disable();
+    } else {
+        autoshift_enable();
+    }
 
+    switch (get_highest_layer(state)) {
+    case _NUM:
+        rgblight_sethsv_noeeprom (0xFF,  0xFF, 0x77);
+        break;
+    case _FN:
+        rgblight_sethsv_noeeprom (0xA0,  0xFF, 0x77);
+        break;
+    case _SGN:
+        rgblight_sethsv_noeeprom (0x7A,  0xFF, 0x77);
+        break;
+    default: //  for any other layers, or the default layer
+        rgblight_sethsv_noeeprom (0x50,  0xFF, 0xFF);
+        break;
+    }
+  return state;
+};
