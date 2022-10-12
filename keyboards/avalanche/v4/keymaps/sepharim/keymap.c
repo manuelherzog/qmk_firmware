@@ -29,7 +29,7 @@ enum layer {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(KC_ESC  , KC_1    , KC_2    , KC_3    , KC_4    , KC_5    ,                                                  KC_6    , KC_7    , KC_8    , KC_9    , KC_0    , DE_EURO ,
                      KC_TAB  , KC_X    , KC_V    , KC_L    , KC_C    , KC_W    ,                                                  KC_K    , KC_H    , KC_G    , KC_F    , KC_Q    , DE_SS   ,
-            CAPSWRD, EE_CLR  , KC_U    , KC_I    , KC_A    , KC_E    , KC_O    ,                                                  KC_S    , KC_N    , KC_R    , KC_T    , KC_D    , DE_Y    , xxxxxxx, 
+            xxxxxxx, CAPSWRD , KC_U    , KC_I    , KC_A    , KC_E    , KC_O    ,                                                  KC_S    , KC_N    , KC_R    , KC_T    , KC_D    , DE_Y    , xxxxxxx, 
                      KC_LSFT , DE_UDIA , DE_ODIA , DE_ADIA , KC_P    , DE_Z    ,    KC_LGUI , FN      ,    KC_APP  , KC_RGUI ,    KC_B    , KC_M    , KC_COMM , KC_DOT  , KC_J    , KC_RSFT , 
                                                    KC_MUTE , KC_LCTL , KC_LALT ,    SGN_SPC , NAV_ENT ,    SGN_SPC , NAV_ENT ,    KC_RALT , KC_RCTL , KC_BTN1),
     [_NUM]  = LAYOUT(xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx ,                                                  xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx ,
@@ -52,16 +52,90 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 bool should_process_keypress(void) { return true; }
 bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
     switch(keycode) {
+        //German Umlauts
         case DE_UDIA:
         case DE_ODIA:
         case DE_ADIA:
+            return true;
+        //MouseKeys on Numpad
+        case KC_4:
+        case KC_5:
+        case KC_6:
+        case KC_7:
+        case KC_8:
+        case KC_9:
             return true;
         default:
             return false;
     }
 }
+bool get_auto_shift_no_auto_repeat(uint16_t keycode, keyrecord_t *record) {
+    switch(keycode) {
+        case KC_7:
+        case KC_9:
+            return true;
+        default:
+            return false;
+    }
+}
+void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
+    switch(keycode) {
+        case KC_4:
+            register_code16((!shifted) ? KC_4 : KC_MS_LEFT);
+            break;
+        case KC_6:
+            register_code16((!shifted) ? KC_6 : KC_MS_RIGHT);
+            break;
+        case KC_5:
+            register_code16((!shifted) ? KC_5 : KC_MS_DOWN);
+            break;
+        case KC_8:
+            register_code16((!shifted) ? KC_8 : KC_MS_UP);
+            break;
+        case KC_7:
+            register_code16((!shifted) ? KC_7 : KC_BTN1);
+            break;
+        case KC_9:
+            register_code16((!shifted) ? KC_9 : KC_BTN2);
+            break;
+        default:
+            if (shifted) {
+                add_weak_mods(MOD_BIT(KC_LSFT));
+            }
+            // & 0xFF gets the Tap key for Tap Holds, required when using Retro Shift
+            register_code16((IS_RETRO(keycode)) ? keycode & 0xFF : keycode);
+    }
+}
+
+void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
+    switch(keycode) {
+        case KC_4:
+            unregister_code16((!shifted) ? KC_4 : KC_MS_LEFT);
+            break;
+        case KC_6:
+            unregister_code16((!shifted) ? KC_6 : KC_MS_RIGHT);
+            break;
+        case KC_5:
+            unregister_code16((!shifted) ? KC_5 : KC_MS_DOWN);
+            break;
+        case KC_8:
+            unregister_code16((!shifted) ? KC_8 : KC_MS_UP);
+            break;
+        case KC_7:
+            unregister_code16((!shifted) ? KC_7 : KC_BTN1);
+            break;
+        case KC_9:
+            unregister_code16((!shifted) ? KC_9 : KC_BTN2);
+            break;
+        default:
+            // & 0xFF gets the Tap key for Tap Holds, required when using Retro Shift
+            // The IS_RETRO check isn't really necessary here, always using
+            // keycode & 0xFF would be fine.
+            unregister_code16((IS_RETRO(keycode)) ? keycode & 0xFF : keycode);
+    }
+}
 layer_state_t layer_state_set_user(layer_state_t state) {
-    if (get_autoshift_state() && (state & (1<<_NUM) || state & (1<<_FN) || state & (1<<_SGN))) {
+    if (get_autoshift_state() && (state & (1<<_FN) || state & (1<<_SGN))) {
         autoshift_disable();
     } else {
         autoshift_enable();
