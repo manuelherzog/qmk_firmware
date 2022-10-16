@@ -23,26 +23,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               xxxxxxx , KC_X    , KC_V    , KC_L    , KC_C    , KC_W    ,           KC_K    , KC_H    , KC_G    , KC_F    , KC_Q    , DE_SS   ,
               xxxxxxx , MY_U    , MY_I    , MY_A    , MY_E    , KC_O    ,           KC_S    , MY_N    , MY_R    , MY_T    , MY_D    , DE_Y    ,
               xxxxxxx , DE_UDIA , DE_ODIA , DE_ADIA , KC_P    , DE_Z    ,           KC_B    , KC_M    , KC_COMM , KC_DOT  , KC_J    , xxxxxxx , 
-                                                      xxxxxxx , RESET   ,           _______ , xxxxxxx ,
-                        KC_MUTE , xxxxxxx , xxxxxxx , SGN_SPC , FN      ,           CAPSWRD , NAV_ENT , xxxxxxx , xxxxxxx , KC_BTN1),
+                                                      SGN_SPC , FN      ,           CAPSWRD , NAV_ENT),
     [_NAV]  = MY_LAYOUT(
                         KC_PGUP , KC_BSPC , KC_UP   , KC_DEL  , KC_PGDN ,           xxxxxxx , KC_7    , KC_8    , KC_9    , xxxxxxx ,
                         KC_HOME , KC_LEFT , KC_DOWN , KC_RGHT , KC_END  ,           xxxxxxx , MY_4    , MY_5    , MY_6    , MY_Nxxx ,
                         KC_ESC  , KC_TAB  , KC_INS  , KC_ENT  , xxxxxxx ,           KC_0    , KC_1    , KC_2    , KC_3    , xxxxxxx ,
-                                                      _______ , _______ ,           _______ , _______ ,
-                        _______ , _______ , _______ , _______ , _______ ,           KC_LSFT , _______ , _______ , _______ , _______),
+                                                      _______ , _______ ,           KC_LSFT , _______),
     [_FN]   = MY_LAYOUT(
                         _______ , _______ , _______ , _______ , _______ ,           xxxxxxx , KC_F7   , KC_F8   , KC_F9   , KC_F10  ,
                         _______ , _______ , _______ , _______ , _______ ,           xxxxxxx , KC_F4   , KC_F5   , KC_F6   , KC_F11  ,
                         _______ , _______ , _______ , _______ , _______ ,           xxxxxxx , KC_F1   , KC_F2   , KC_F3   , KC_F12  ,
-                                                      _______ , _______ ,           _______ , _______ ,
-                        _______ , _______ , _______ , _______ , _______ ,           _______ , _______ , _______ , _______ , _______),
+                                                      _______ , _______ ,           _______ , _______),
     [_SGN]  = MY_LAYOUT6(
               xxxxxxx , DE_AT   , DE_UNDS , DE_LBRC , DE_RBRC , DE_CIRC ,           DE_EXLM , DE_LABK , DE_RABK , DE_EQL  , DE_AMPR , xxxxxxx ,
               xxxxxxx , DE_BSLS , DE_SLSH , DE_LCBR , DE_RCBR , DE_ASTR ,           DE_QUES , DE_LPRN , DE_RPRN , DE_MINS , DE_COLN , DE_AT   ,
               xxxxxxx , DE_HASH , DE_DLR  , DE_PIPE , DE_TILD , DE_GRV  ,           DE_PLUS , DE_PERC , DE_DQUO , DE_QUOT , DE_SCLN , xxxxxxx ,
-                                                      _______ , _______ ,           _______ , _______ ,
-                        _______ , _______ , _______ , _______ , _______ ,           _______ , _______ , _______ , _______ , _______)
+                                                      _______ , _______ ,           _______ , _______)
 };
 
 bool should_process_keypress(void) { return true; }

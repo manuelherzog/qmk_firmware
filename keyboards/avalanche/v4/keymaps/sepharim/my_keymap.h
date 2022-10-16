@@ -8,26 +8,23 @@
         l11, l12, l13, l14, l15,     r15, r14, r13, r12, r11,\
         l21, l22, l23, l24, l25,     r25, r24, r23, r22, r21,\
         l31, l32, l33, l34, l35,     r35, r34, r33, r32, r31,\
-                       l51, l52,     r52, r51,\
-        l61, l62, l63, l64, l65,     r65, r64, r63, r62, r61) \
+                       l51, l52,     r52, r51)\
         MY_LAYOUT6(\
         xxx, l11, l12, l13, l14, l15,     r15, r14, r13, r12, r11, xxx,\
         xxx, l21, l22, l23, l24, l25,     r25, r24, r23, r22, r21, xxx,\
         xxx, l31, l32, l33, l34, l35,     r35, r34, r33, r32, r31, xxx,\
-                            l51, l52,     r52, r51,\
-             l61, l62, l63, l64, l65,     r65, r64, r63, r62, r61)
+                            l51, l52,     r52, r51)
 #define MY_LAYOUT6(\
         l10, l11, l12, l13, l14, l15,     r15, r14, r13, r12, r11, r10,\
         l20, l21, l22, l23, l24, l25,     r25, r24, r23, r22, r21, r20,\
         l30, l31, l32, l33, l34, l35,     r35, r34, r33, r32, r31, r30,\
-                            l51, l52,     r52, r51,\
-             l61, l62, l63, l64, l65,     r65, r64, r63, r62, r61) \
+                            l51, l52,     r52, r51)\
         LAYOUT(\
             xxx, xxx, xxx, xxx, xxx, xxx,                          xxx, xxx, xxx, xxx, xxx, xxx,\
             l10, l11, l12, l13, l14, l15,                          r15, r14, r13, r12, r11, r10,\
-        xxx,l20, l21, l22, l23, l24, l25,                          r25, r24, r23, r22, r21, r20,RGB_MOD,\
-            l30, l31, l32, l33, l34, l35, l51, l52,      r52, r51, r35, r34, r33, r32, r31, r30,\
-                           l61, l62, l63, l64, l65,      r65, r64, r63, r62, r61)
+      RESET,l20, l21, l22, l23, l24, l25,                          r25, r24, r23, r22, r21, r20,RGB_MOD,\
+            l30, l31, l32, l33, l34, l35, xxx, xxx,      xxx, xxx, r35, r34, r33, r32, r31, r30,\
+                       KC_MUTE, xxx, xxx, l51, l52,      r52, r51, xxx, xxx, KC_BTN1)
 
 
 #define NAV_ENT LT(_NAV, KC_ENT)
