@@ -8,17 +8,18 @@
         l11, l12, l13, l14, l15,     r15, r14, r13, r12, r11,\
         l21, l22, l23, l24, l25,     r25, r24, r23, r22, r21,\
         l31, l32, l33, l34, l35,     r35, r34, r33, r32, r31,\
-                       l51, l52,     r52, r51)\
+                       l51, l52,     r52, r51) \
         MY_LAYOUT6(\
         xxx, l11, l12, l13, l14, l15,     r15, r14, r13, r12, r11, xxx,\
         xxx, l21, l22, l23, l24, l25,     r25, r24, r23, r22, r21, xxx,\
         xxx, l31, l32, l33, l34, l35,     r35, r34, r33, r32, r31, xxx,\
                             l51, l52,     r52, r51)
+
 #define MY_LAYOUT6(\
         l10, l11, l12, l13, l14, l15,     r15, r14, r13, r12, r11, r10,\
         l20, l21, l22, l23, l24, l25,     r25, r24, r23, r22, r21, r20,\
         l30, l31, l32, l33, l34, l35,     r35, r34, r33, r32, r31, r30,\
-                            l51, l52,     r52, r51)\
+                            l51, l52,     r52, r51) \
         LAYOUT(\
             xxx, xxx, xxx, xxx, xxx, xxx,                          xxx, xxx, xxx, xxx, xxx, xxx,\
             l10, l11, l12, l13, l14, l15,                          r15, r14, r13, r12, r11, r10,\
