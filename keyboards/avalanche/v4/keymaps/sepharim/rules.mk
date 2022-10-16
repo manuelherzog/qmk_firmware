@@ -2,6 +2,8 @@ RGBLIGHT_ENABLE = yes
 AUTO_SHIFT_ENABLE = yes
 OLED_ENABLE = yes
 CAPS_WORD_ENABLE = yes
+RGB_MATRIX_ENABLE = no
+RGB_MATRIX_DRIVER = WS2812
 
 
 LTO_ENABLE = yes # link time optimisation
@@ -16,8 +18,10 @@ GRAVE_ESC_ENABLE = no # superimpose the grave (`) and Escape keys
 MAGIC_ENABLE = no # NKRO toggling, mod swapping, etc
 MUSIC_ENABLE = no
 #RGBLIGHT_ENABLE = no
-RGB_MATRIX_ENABLE = no # yes for per-key/layer RGB
+#RGB_MATRIX_ENABLE = no # yes for per-key/layer RGB
 TAP_DANCE_ENABLE = no
 COMBO_ENABLE = no
 
 #SRC += oneshot.c
+
+SRC += my_rgb_matrix.c

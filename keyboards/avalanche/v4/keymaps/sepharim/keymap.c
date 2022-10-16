@@ -19,26 +19,30 @@ enum layer {
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_BASE] = LAYOUT(KC_ESC  , KC_1    , KC_2    , KC_3    , KC_4    , KC_5    ,                                                  KC_6    , KC_7    , KC_8    , KC_9    , KC_0    , DE_EURO ,
-                     KC_TAB  , KC_X    , KC_V    , KC_L    , KC_C    , KC_W    ,                                                  KC_K    , KC_H    , KC_G    , KC_F    , KC_Q    , DE_SS   ,
-            xxxxxxx, CAPSWRD , MY_U    , MY_I    , MY_A    , MY_E    , KC_O    ,                                                  KC_S    , MY_N    , MY_R    , MY_T    , MY_D    , DE_Y    , xxxxxxx, 
-                     KC_LSFT , DE_UDIA , DE_ODIA , DE_ADIA , KC_P    , DE_Z    ,    KC_LGUI , FN      ,    KC_APP  , KC_RGUI ,    KC_B    , KC_M    , KC_COMM , KC_DOT  , KC_J    , KC_RSFT , 
-                                                   KC_MUTE , KC_LCTL , KC_LALT ,    SGN_SPC , NAV_ENT ,    SGN_SPC , NAV_ENT ,    KC_RALT , KC_RCTL , KC_BTN1),
-    [_NAV]  = LAYOUT(xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx ,                                                  xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx ,
-                     xxxxxxx , KC_PGUP , KC_BSPC , KC_UP   , KC_DEL  , KC_PGDN ,                                                  xxxxxxx , KC_7    , KC_8    , KC_9    , xxxxxxx , xxxxxxx ,
-            xxxxxxx, xxxxxxx , KC_HOME , KC_LEFT , KC_DOWN , KC_RGHT , KC_END  ,                                                  xxxxxxx , KC_4    , KC_5    , KC_6    , xxxxxxx , xxxxxxx , xxxxxxx, 
-                     xxxxxxx , KC_ESC  , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx ,    _______ , _______ ,    _______ , _______ ,    KC_0    , KC_1    , KC_2    , KC_3    , xxxxxxx , xxxxxxx ,
-                                                   _______ , _______ , _______ ,    _______ , _______ ,    _______ , _______ ,    _______ , _______ , _______),
-    [_FN]   = LAYOUT(_______ , _______ , _______ , _______ , _______ , _______ ,                                                  xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx ,
-                     _______ , _______ , _______ , _______ , _______ , _______ ,                                                  xxxxxxx , KC_F7   , KC_F8   , KC_F9   , KC_F10  , xxxxxxx ,
-            RESET  , _______ , _______ , _______ , _______ , _______ , _______ ,                                                  xxxxxxx , KC_F4   , KC_F5   , KC_F6   , KC_F11  , xxxxxxx , xxxxxxx,
-                     _______ , _______ , _______ , _______ , _______ , _______ ,    _______ , _______ ,    _______ , _______ ,    xxxxxxx , KC_F1   , KC_F2   , KC_F3   , KC_F12  , xxxxxxx ,
-                                                   _______ , _______ , _______ ,    _______ , _______ ,    _______ , _______ ,    _______ , _______ , _______),
-    [_SGN]  = LAYOUT(xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx ,                                                  xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx ,
-                     xxxxxxx , DE_AT   , DE_UNDS , DE_LBRC , DE_RBRC , DE_CIRC ,                                                  DE_EXLM , DE_LABK , DE_RABK , DE_EQL  , DE_AMPR , xxxxxxx ,
-            xxxxxxx, xxxxxxx , DE_BSLS , DE_SLSH , DE_LCBR , DE_RCBR , DE_ASTR ,                                                  DE_QUES , DE_LPRN , DE_RPRN , DE_MINS , DE_COLN , DE_AT   , xxxxxxx,
-                     xxxxxxx , DE_HASH , DE_DLR  , DE_PIPE , DE_TILD , DE_GRV  ,    _______ , _______ ,    _______ , _______ ,    DE_PLUS , DE_PERC , DE_DQUO , DE_QUOT , DE_SCLN , xxxxxxx , 
-                                                   _______ , _______ , _______ ,    _______ , _______ ,    _______ , _______ ,    _______ , _______ , _______)
+    [_BASE] = MY_LAYOUT6(
+              KC_TAB  , KC_X    , KC_V    , KC_L    , KC_C    , KC_W    ,           KC_K    , KC_H    , KC_G    , KC_F    , KC_Q    , DE_SS   ,
+              CAPSWRD , MY_U    , MY_I    , MY_A    , MY_E    , KC_O    ,           KC_S    , MY_N    , MY_R    , MY_T    , MY_D    , DE_Y    ,
+              KC_LSFT , DE_UDIA , DE_ODIA , DE_ADIA , KC_P    , DE_Z    ,           KC_B    , KC_M    , KC_COMM , KC_DOT  , KC_J    , KC_RSFT , 
+                                                      KC_LGUI , RESET   ,           _______ , KC_RGUI ,
+                        KC_MUTE , KC_LCTL , KC_LALT , SGN_SPC , FN      ,           _______ , NAV_ENT , KC_RALT , KC_RCTL , KC_BTN1),
+    [_NAV]  = MY_LAYOUT(
+                        KC_PGUP , KC_BSPC , KC_UP   , KC_DEL  , KC_PGDN ,           xxxxxxx , KC_7    , KC_8    , KC_9    , xxxxxxx ,
+                        KC_HOME , KC_LEFT , KC_DOWN , KC_RGHT , KC_END  ,           xxxxxxx , MY_4    , MY_5    , MY_6    , MY_Nxxx ,
+                        KC_ESC  , KC_TAB  , KC_INS  , KC_ENT  , xxxxxxx ,           KC_0    , KC_1    , KC_2    , KC_3    , xxxxxxx ,
+                                                      _______ , _______ ,           _______ , _______ ,
+                        _______ , _______ , _______ , _______ , _______ ,           _______ , _______ , _______ , _______ , _______),
+    [_FN]   = MY_LAYOUT(
+                        _______ , _______ , _______ , _______ , _______ ,           xxxxxxx , KC_F7   , KC_F8   , KC_F9   , KC_F10  ,
+                        _______ , _______ , _______ , _______ , _______ ,           xxxxxxx , KC_F4   , KC_F5   , KC_F6   , KC_F11  ,
+                        _______ , _______ , _______ , _______ , _______ ,           xxxxxxx , KC_F1   , KC_F2   , KC_F3   , KC_F12  ,
+                                                      _______ , _______ ,           _______ , _______ ,
+                        _______ , _______ , _______ , _______ , _______ ,           _______ , _______ , _______ , _______ , _______),
+    [_SGN]  = MY_LAYOUT6(
+              xxxxxxx , DE_AT   , DE_UNDS , DE_LBRC , DE_RBRC , DE_CIRC ,           DE_EXLM , DE_LABK , DE_RABK , DE_EQL  , DE_AMPR , xxxxxxx ,
+              xxxxxxx , DE_BSLS , DE_SLSH , DE_LCBR , DE_RCBR , DE_ASTR ,           DE_QUES , DE_LPRN , DE_RPRN , DE_MINS , DE_COLN , DE_AT   ,
+              xxxxxxx , DE_HASH , DE_DLR  , DE_PIPE , DE_TILD , DE_GRV  ,           DE_PLUS , DE_PERC , DE_DQUO , DE_QUOT , DE_SCLN , xxxxxxx ,
+                                                      _______ , _______ ,           _______ , _______ ,
+                        _______ , _______ , _______ , _______ , _______ ,           _______ , _______ , _______ , _______ , _______)
 };
 
 bool should_process_keypress(void) { return true; }
@@ -72,6 +76,22 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     }
 #endif
 
+#ifdef RGB_MATRIX_ENABLE
+    switch (get_highest_layer(state)) {
+    case _NAV:
+        rgb_matrix_sethsv_noeeprom (0xFF,  0xFF, 0x77);
+        break;
+    case _FN:
+        rgb_matrix_sethsv_noeeprom (0xA0,  0xFF, 0x77);
+        break;
+    case _SGN:
+        rgb_matrix_sethsv_noeeprom (0x7A,  0xFF, 0x77);
+        break;
+    default: //  for any other layers, or the default layer
+        rgb_matrix_sethsv_noeeprom (0x50,  0xFF, 0xFF);
+        break;
+    }
+#endif
 #ifdef RGBLIGHT_ENABLE
     switch (get_highest_layer(state)) {
     case _NAV:
