@@ -9,7 +9,6 @@ MOUSEKEY_ENABLE = yes
 VIA_ENABLE = no
 CONSOLE_ENABLE = no
 COMMAND_ENABLE = no
-AUTO_SHIFT_ENABLE = yes
 WEBUSB_ENABLE = no # might just be for Oryx
 EXTRAKEY_ENABLE = yes # media/volume keys
 SPACE_CADET_ENABLE = no # parentheses when tapping left/right mods
