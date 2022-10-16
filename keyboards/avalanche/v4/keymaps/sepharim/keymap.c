@@ -20,17 +20,17 @@ enum layer {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = MY_LAYOUT6(
-              KC_TAB  , KC_X    , KC_V    , KC_L    , KC_C    , KC_W    ,           KC_K    , KC_H    , KC_G    , KC_F    , KC_Q    , DE_SS   ,
-              CAPSWRD , MY_U    , MY_I    , MY_A    , MY_E    , KC_O    ,           KC_S    , MY_N    , MY_R    , MY_T    , MY_D    , DE_Y    ,
-              KC_LSFT , DE_UDIA , DE_ODIA , DE_ADIA , KC_P    , DE_Z    ,           KC_B    , KC_M    , KC_COMM , KC_DOT  , KC_J    , KC_RSFT , 
-                                                      KC_LGUI , RESET   ,           _______ , KC_RGUI ,
-                        KC_MUTE , KC_LCTL , KC_LALT , SGN_SPC , FN      ,           _______ , NAV_ENT , KC_RALT , KC_RCTL , KC_BTN1),
+              xxxxxxx , KC_X    , KC_V    , KC_L    , KC_C    , KC_W    ,           KC_K    , KC_H    , KC_G    , KC_F    , KC_Q    , DE_SS   ,
+              xxxxxxx , MY_U    , MY_I    , MY_A    , MY_E    , KC_O    ,           KC_S    , MY_N    , MY_R    , MY_T    , MY_D    , DE_Y    ,
+              xxxxxxx , DE_UDIA , DE_ODIA , DE_ADIA , KC_P    , DE_Z    ,           KC_B    , KC_M    , KC_COMM , KC_DOT  , KC_J    , xxxxxxx , 
+                                                      xxxxxxx , RESET   ,           _______ , xxxxxxx ,
+                        KC_MUTE , xxxxxxx , xxxxxxx , SGN_SPC , FN      ,           CAPSWRD , NAV_ENT , xxxxxxx , xxxxxxx , KC_BTN1),
     [_NAV]  = MY_LAYOUT(
                         KC_PGUP , KC_BSPC , KC_UP   , KC_DEL  , KC_PGDN ,           xxxxxxx , KC_7    , KC_8    , KC_9    , xxxxxxx ,
                         KC_HOME , KC_LEFT , KC_DOWN , KC_RGHT , KC_END  ,           xxxxxxx , MY_4    , MY_5    , MY_6    , MY_Nxxx ,
                         KC_ESC  , KC_TAB  , KC_INS  , KC_ENT  , xxxxxxx ,           KC_0    , KC_1    , KC_2    , KC_3    , xxxxxxx ,
                                                       _______ , _______ ,           _______ , _______ ,
-                        _______ , _______ , _______ , _______ , _______ ,           _______ , _______ , _______ , _______ , _______),
+                        _______ , _______ , _______ , _______ , _______ ,           KC_LSFT , _______ , _______ , _______ , _______),
     [_FN]   = MY_LAYOUT(
                         _______ , _______ , _______ , _______ , _______ ,           xxxxxxx , KC_F7   , KC_F8   , KC_F9   , KC_F10  ,
                         _______ , _______ , _______ , _______ , _______ ,           xxxxxxx , KC_F4   , KC_F5   , KC_F6   , KC_F11  ,
