@@ -2,6 +2,13 @@
 
 #include "keymap_german_mac_iso.h"
 
+enum layer {
+    _BASE,
+    _NAV,
+    _FN,
+    _SGN,
+};
+
 #define xxxxxxx KC_NO
 #define xxx KC_NO
 #define MY_LAYOUT(\

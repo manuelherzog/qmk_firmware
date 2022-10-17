@@ -25,3 +25,4 @@ COMBO_ENABLE = no
 #SRC += oneshot.c
 
 SRC += my_rgb_matrix.c
+SRC += my_auto_shift.c
