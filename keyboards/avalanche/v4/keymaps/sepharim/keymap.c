@@ -13,13 +13,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = MY_LAYOUT6(
               xxxxxxx , KC_X    , KC_V    , KC_L    , KC_C    , KC_W    ,           KC_K    , KC_H    , KC_G    , KC_F    , KC_Q    , DE_SS   ,
               xxxxxxx , MY_U    , MY_I    , MY_A    , MY_E    , KC_O    ,           KC_S    , MY_N    , MY_R    , MY_T    , MY_D    , DE_Y    ,
-              xxxxxxx , DE_UDIA , DE_ODIA , DE_ADIA , KC_P    , DE_Z    ,           KC_B    , KC_M    , KC_COMM , KC_DOT  , KC_J    , xxxxxxx , 
+              xxxxxxx , DE_UDIA , DE_ODIA , DE_ADIA , KC_P    , DE_Z    ,           KC_B    , KC_M    , KC_COMM , KC_DOT  , KC_J    , xxxxxxx ,
                                                       SGN_SPC , FN      ,           CAPSWRD , NAV_ENT),
     [_NAV]  = MY_LAYOUT(
                         KC_PGUP , KC_BSPC , KC_UP   , KC_DEL  , KC_PGDN ,           xxxxxxx , KC_7    , KC_8    , KC_9    , xxxxxxx ,
                         KC_HOME , KC_LEFT , KC_DOWN , KC_RGHT , KC_END  ,           xxxxxxx , MY_4    , MY_5    , MY_6    , MY_Nxxx ,
                         KC_ESC  , KC_TAB  , KC_INS  , KC_ENT  , KC_LSFT ,           KC_0    , KC_1    , KC_2    , KC_3    , xxxxxxx ,
-                                                      _______ , _______ ,           _______ , _______),
+                                                      _______ , _______ ,           TG(_MOV), _______),
     [_FN]   = MY_LAYOUT(
                         KC_LCTL , KC_LALT , KC_LGUI , KC_LSFT , _______ ,           xxxxxxx , KC_F7   , KC_F8   , KC_F9   , KC_F10  ,
                         OSM(MOD_LCTL) , OSM(MOD_LALT) , OSM(MOD_LGUI) , OSM(MOD_LSFT) , _______ ,           xxxxxxx , KC_F4   , KC_F5   , KC_F6   , KC_F11  ,
@@ -29,7 +29,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               xxxxxxx , DE_AT   , DE_UNDS , DE_LBRC , DE_RBRC , DE_CIRC ,           DE_EXLM , DE_LABK , DE_RABK , DE_EQL  , DE_AMPR , xxxxxxx ,
               xxxxxxx , DE_BSLS , DE_SLSH , DE_LCBR , DE_RCBR , DE_ASTR ,           DE_QUES , DE_LPRN , DE_RPRN , DE_MINS , DE_COLN , DE_AT   ,
               xxxxxxx , DE_HASH , DE_DLR  , DE_PIPE , DE_TILD , DE_GRV  ,           DE_PLUS , DE_PERC , DE_DQUO , DE_QUOT , DE_SCLN , xxxxxxx ,
-                                                      _______ , _______ ,           _______ , _______)
+                                                      _______ , _______ ,           _______ , _______),
+    [_MOV] = MY_LAYOUT(
+                        _______ , _______ , _______ , _______ , _______ ,           xxxxxxx , KC_BTN1 , KC_MS_U , KC_BTN2 , xxxxxxx ,
+                        _______ , _______ , _______ , _______ , _______ ,           xxxxxxx , KC_MS_L , KC_MS_D , KC_MS_R , KC_LSFT ,
+                        _______ , _______ , _______ , _______ , _______ ,           xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx , xxxxxxx ,
+                                                      _______ , _______ ,           TG(_MOV), _______)
 };
 
 //Active for layer and OLED prozessing on slave
@@ -73,23 +78,21 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         break;
     }
 #endif
-  
+
 #ifdef OLED_ENABLE
-oled_write_P(PSTR("\n"), false); 
+oled_write_P(PSTR("\n"), false);
 if (is_keyboard_master()) {
   switch (get_highest_layer(state)) {
     case _NAV:
       //                 123456789012345678901
       oled_write_P(PSTR("      Num & Nav      "), false);
-      oled_write_P(PSTR("  _   _  _  _  _  _  "), false);
-      oled_write_P(PSTR("  _   PU BS NU DE PD "), false);
-      oled_write_P(PSTR("  _   HO NL ND NR EN "), false);
+      oled_write_P(PSTR("  PU  BS  NU  DE  PD "), false);
+      oled_write_P(PSTR("  HO  NL  ND  NR  EN "), false);
       oled_write_P(PSTR("  _   _  _  _  _  _  "), false);
       break;
     case _SGN:
             //                 123456789012345678901
       oled_write_P(PSTR("         SGN         "), false);
-      oled_write_P(PSTR("  _   _  _  _  _  _  "), false);
       oled_write_P(PSTR("  _   @  _  [  ]  ^  "), false);
       oled_write_P(PSTR("  _   \\  /  {  }  *  "), false);
       oled_write_P(PSTR("  _   #  $  |  ~  `  "), false);
@@ -97,7 +100,6 @@ if (is_keyboard_master()) {
     default:
       //                 123456789012345678901
       oled_write_P(PSTR("        BASE         "), false);
-      oled_write_P(PSTR(" ESC  1  2  3  4  5  "), false);
       oled_write_P(PSTR(" TAB  x  v  l  c  w  "), false);
       oled_write_P(PSTR(" ???  u  i  a  e  o  "), false);
       oled_write_P(PSTR(" SHI  ue oe ae p  z  "), false);
@@ -108,7 +110,6 @@ if (is_keyboard_master()) {
     case _NAV:
       //                 123456789012345678901
       oled_write_P(PSTR("      Num & Nav      "), false);
-      oled_write_P(PSTR(" _  _  _  _  _   _   "), false);
       oled_write_P(PSTR(" _  7  8  9  _   _   "), false);
       oled_write_P(PSTR(" _  4  5  6  _   _   "), false);
       oled_write_P(PSTR(" 0  1  2  3  _   _   "), false);
@@ -116,7 +117,6 @@ if (is_keyboard_master()) {
     case _SGN:
       //                 123456789012345678901
       oled_write_P(PSTR("         SGN         "), false);
-      oled_write_P(PSTR(" _  _  _  _  _   _   "), false);
       oled_write_P(PSTR(" !  ^  °  =  &   _   "), false);
       oled_write_P(PSTR(" ?  (  )  -  :   @   "), false);
       oled_write_P(PSTR(" +  \%  \"  '  ;   _   "), false);
@@ -124,7 +124,6 @@ if (is_keyboard_master()) {
     default:
       //                 123456789012345678901
       oled_write_P(PSTR("        BASE         "), false);
-      oled_write_P(PSTR(" 6  7  8  9  0  EUR  "), false);
       oled_write_P(PSTR(" k  h  g  f  q   ss  "), false);
       oled_write_P(PSTR(" s  n  r  t  d   y   "), false);
       oled_write_P(PSTR(" b  m  ,  .  j  SHI  "), false);

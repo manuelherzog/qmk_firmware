@@ -7,6 +7,7 @@ enum layer {
     _NAV,
     _FN,
     _SGN,
+    _MOV
 };
 
 #define xxxxxxx KC_NO
